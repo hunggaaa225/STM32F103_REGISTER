@@ -23,7 +23,8 @@ typedef struct
 #define USART_SR_RXNE	(1U << 5)
 #define USART_SR_TC		(1U << 6)
 
-void HUNG_USART_Init(void);
-void HUNG_USART_Trans(char c);
+void HUNG_USART_Init(USART_TypeDef *USARTx); // khoi tao usart
+void HUNG_USART_Trans(USART_TypeDef *USARTx, char c); // ham truyen
+uint8_t HUNG_USART_Recv(USART_TypeDef *USARTx); // ham nhan
 
 #endif 
