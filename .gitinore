@@ -1,0 +1,16 @@
+# Keil MDK - build output
+Objects/
+Listings/
+DebugConfig/
+RTE/
+*.uvguix.*
+*.uvoptx
+*.scvd
+*.bak
+*.dep
+*.iex
+*.htm
+*.lnp
+*.map
+*.build_log.htm
+*.lst
