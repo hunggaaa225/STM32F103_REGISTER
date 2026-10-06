@@ -61,3 +61,25 @@ uint8_t HUNG_USART_Recv(USART_TypeDef *USARTx)
 	while(!(USARTx->USART_SR & USART_SR_RXNE));
 	return (uint8_t)USARTx->USART_DR;
 }
+
+void HUNG_USART_SendBuff(USART_TypeDef *USARTx, const void *data, uint16_t len)
+{
+	// dung pointer void de cho toi bat ki du lieu nao
+	// khoi tao con tro p de duyet data
+	const uint8_t *p = (const uint8_t *)data; 
+	for(uint16_t i = 0; i < len ; i++)
+	{
+		HUNG_USART_Trans(USARTx, (char)p[i]); // goi ham trans de gui tung byte du lieu
+	}
+	while(!(USARTx->USART_SR & USART_SR_TC)); // cho den khi TC=1
+}
+
+void HUNG_USART_RecvBuff(USART_TypeDef *USARTx, const void *data, uint16_t len)
+{
+	uint8_t *p = (uint8_t *)data; 
+	for(uint16_t i = 0 ; i < len ; i++)
+	{
+		p[i] = HUNG_USART_Recv(USARTx);
+	}
+	
+}

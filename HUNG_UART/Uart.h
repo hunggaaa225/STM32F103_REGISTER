@@ -27,4 +27,9 @@ void HUNG_USART_Init(USART_TypeDef *USARTx); // khoi tao usart
 void HUNG_USART_Trans(USART_TypeDef *USARTx, char c); // ham truyen
 uint8_t HUNG_USART_Recv(USART_TypeDef *USARTx); // ham nhan
 
+// Ham truyen tong quat 
+void HUNG_USART_SendBuff(USART_TypeDef *USARTx, const void *data, uint16_t len); // su dung con tro void de tro toi moi loai data
+
+// Ham nhan tong quat
+void HUNG_USART_RecvBuff(USART_TypeDef *USARTx, const void *data, uint16_t len); 
 #endif 
